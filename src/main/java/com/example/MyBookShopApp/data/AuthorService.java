@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,6 +29,7 @@ public class AuthorService {
             return author;
         });
 
-        return authors.stream().collect(Collectors.groupingBy((Author a) -> {return a.getLastName().substring(0,1);}));
+        return authors.stream().sorted(Comparator.comparing(Author::getLastName)).collect(Collectors.groupingBy((Author a) -> a.getLastName().substring(0,1)));
     }
+
 }

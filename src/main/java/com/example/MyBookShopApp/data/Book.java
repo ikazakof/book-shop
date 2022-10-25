@@ -7,6 +7,7 @@ public class Book {
     private String title;
     private String priceOld;
     private String price;
+    private Integer discount;
 
     @Override
     public String toString() {
@@ -16,6 +17,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", priceOld='" + priceOld + '\'' +
                 ", price='" + price + '\'' +
+                ", discount=" + discount +
                 '}';
     }
 
@@ -57,5 +59,13 @@ public class Book {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public Integer getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
     }
 }
