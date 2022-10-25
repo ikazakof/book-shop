@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="/assets/css/extra.min.css?v=09585989">
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script defer src="/assets/js/scripts.min.js?v=09585989"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#locales").change(function () {
+                var selectedOption = $("#locales").val();
+                if (selectedOption != ''){
+                    window.location.replace('?lang='+selectedOption);
+                }
+            });
+        });
+    </script>
 </head>
 <body class="Site">
 <header class="Header"
@@ -23,10 +34,10 @@
     <div class="wrap">
         <main class="Middle-main">
             <ul class="breadcrumbs"
-                th:replace="~{fragments/breadcrumb_fragment :: breadcrumps(category='Новинки')}"></ul>
+                th:replace="~{fragments/breadcrumb_fragment :: breadcrumps(category=#{new.breadcrumbs})}"></ul>
             <div class="Section">
                 <div class="Section-header">
-                    <h1 class="Section-title">Новинки
+                    <h1 class="Section-title" th:text="#{category.new}">Новинки
                     </h1>
                     <form class="form form_inline Section-header-form" action="#" method="post">
                         <div class="form-group">
@@ -48,7 +59,7 @@
                     </form>
                 </div>
                 <div class="Cards Cards_refresh"
-                     th:replace="~{fragments/books_pool_fragment :: pool(category='recent', bookList = ${recommendedBooks})}"></div>
+                     th:replace="~{fragments/books_pool_fragment :: pool(category=#{category.new}, bookList = ${recommendedBooks})}"></div>
             </div>
         </main>
     </div>

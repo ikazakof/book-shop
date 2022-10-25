@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="/assets/css/extra.min.css?v=64223515">
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <script defer src="/assets/js/scripts.min.js?v=64223515"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#locales").change(function () {
+                var selectedOption = $("#locales").val();
+                if (selectedOption != ''){
+                    window.location.replace('?lang='+selectedOption);
+                }
+            });
+        });
+    </script>
 </head>
 <body class="Site">
 <header class="Header"
@@ -23,11 +34,11 @@
     <div class="wrap">
         <main class="Middle-main">
             <div class="Section">
-                <div th:replace="~{fragments/book_slider_fragment :: bookSlider(title='Рекомендуемое', bookList = ${recommendedBooks})}"></div>
-                <div th:replace="~{fragments/book_slider_fragment :: bookSlider(title='Новинки', bookList = ${recommendedBooks})}"></div>
-                <div th:replace="~{fragments/book_slider_fragment :: bookSlider(title='Популярное', bookList = ${recommendedBooks})}"></div>
+                <div th:replace="~{fragments/book_slider_fragment :: bookSlider(title=#{category.recommended}, bookList = ${bookList})}"></div>
+                <div th:replace="~{fragments/book_slider_fragment :: bookSlider(title=#{category.new}, bookList = ${bookList})}"></div>
+                <div th:replace="~{fragments/book_slider_fragment :: bookSlider(title=#{category.popular}, bookList = ${bookList})}"></div>
             </div>
-            <h2 class="Middle-title">Книги по тегам
+            <h2 class="Middle-title" th:text="#{main.tags}">Книги по тегам
             </h2>
             <div class="Tags" id="tags" th:replace="~{fragments/tag_cloud_fragment :: cloud}"></div>
         </main>
