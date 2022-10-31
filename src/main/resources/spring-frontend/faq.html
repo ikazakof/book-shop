@@ -40,14 +40,14 @@
             <div class="FAQ">
                 <strong class="FAQ-title">Наиболее частые вопросы:
                 </strong>
-                <div class="HideBlock FAQ-block">
+                <div class="HideBlock FAQ-block" th:each="tip : ${tips}">
                     <header class="HideBlock-header HideBlock-trigger">
-                        <strong class="HideBlock-title">Что делать, если я не нашел нужный товар
+                        <strong class="HideBlock-title" th:text="${tip.getKey()}">Что делать, если я не нашел нужный товар
                         </strong>
                         <button class="HideBlock-btn" type="button">
                         </button>
                     </header>
-                    <div class="HideBlock-content">
+                    <div class="HideBlock-content" th:text="${tip.getValue()}">
                         <p>Если вы ввели в строке поиска название товара и увидели сообщение «Простите, по вашему
                             запросу товаров сейчас нет», это значит, что такого товара у нас в ассортименте пока нет.
                         </p>
