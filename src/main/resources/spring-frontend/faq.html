@@ -38,20 +38,20 @@
             <h1 class="Middle-title" th:text="#{category.help}">Помощь
             </h1>
             <div class="FAQ">
-                <strong class="FAQ-title">Наиболее частые вопросы:
+                <strong class="FAQ-title" th:text="#{help.title}">Наиболее частые вопросы:
                 </strong>
-                <div class="HideBlock FAQ-block" th:each="tip : ${tips}">
+                <div class="HideBlock FAQ-block" >
                     <header class="HideBlock-header HideBlock-trigger">
-                        <strong class="HideBlock-title" th:text="${tip.getKey()}">Что делать, если я не нашел нужный товар
+                        <strong class="HideBlock-title" th:text="#{help.tips.question[0]}">Что делать, если я не нашел нужный товар
                         </strong>
                         <button class="HideBlock-btn" type="button">
                         </button>
                     </header>
-                    <div class="HideBlock-content" th:text="${tip.getValue()}">
-                        <p>Если вы ввели в строке поиска название товара и увидели сообщение «Простите, по вашему
+                    <div class="HideBlock-content" >
+                        <p th:text="#{help.tips.answer[0][0]}">Если вы ввели в строке поиска название товара и увидели сообщение «Простите, по вашему
                             запросу товаров сейчас нет», это значит, что такого товара у нас в ассортименте пока нет.
                         </p>
-                        <p>В этом случае, вы можете добавить ссылку на искомый товар, нажав Не нашли, что искали?. Мы
+                        <p th:text="#{help.tips.answer[0][1]}">В этом случае, вы можете добавить ссылку на искомый товар, нажав Не нашли, что искали?. Мы
                             передадим информацию менеджерам соответствующей категории и постараемся добавить товар в
                             ассортимент.
                         </p>
@@ -59,39 +59,39 @@
                 </div>
                 <div class="HideBlock FAQ-block">
                     <header class="HideBlock-header HideBlock-trigger">
-                        <strong class="HideBlock-title">Товара нет в наличии
+                        <strong class="HideBlock-title" th:text="#{help.tips.question[1]}">Товара нет в наличии
                         </strong>
                         <button class="HideBlock-btn" type="button">
                         </button>
                     </header>
                     <div class="HideBlock-content">
-                        <p>Мы регулярно пополняем запасы товаров на складах. Чтобы узнать о поступлении товара,
+                        <p th:text="#{help.tips.answer[1]}">Мы регулярно пополняем запасы товаров на складах. Чтобы узнать о поступлении товара,
                             подпишитесь на уведомления, нажав кнопку Узнать о поступлении.
                         </p>
                     </div>
                 </div>
                 <div class="HideBlock FAQ-block">
                     <header class="HideBlock-header HideBlock-trigger">
-                        <strong class="HideBlock-title">У товара слишком высокая цена
+                        <strong class="HideBlock-title" th:text="#{help.tips.question[2]}">У товара слишком высокая цена
                         </strong>
                         <button class="HideBlock-btn" type="button">
                         </button>
                     </header>
                     <div class="HideBlock-content">
-                        <p>Вы можете дождаться скидки на интересующий товар. Чтобы не пропустить снижение цены, нажмите
+                        <p  th:text="#{help.tips.answer[2]}">Вы можете дождаться скидки на интересующий товар. Чтобы не пропустить снижение цены, нажмите
                             кнопку Это дорого? на карточке товара. Когда цена снизится, мы пришлем вам уведомление.
                         </p>
                     </div>
                 </div>
                 <div class="HideBlock FAQ-block">
                     <header class="HideBlock-header HideBlock-trigger">
-                        <strong class="HideBlock-title">У меня есть вопрос про товар продавца
+                        <strong class="HideBlock-title" th:text="#{help.tips.question[3]}">У меня есть вопрос про товар продавца
                         </strong>
                         <button class="HideBlock-btn" type="button">
                         </button>
                     </header>
                     <div class="HideBlock-content">
-                        <p>С некоторыми продавцами можно связаться через чат. Чтобы задать интересующий вас вопрос, на
+                        <p th:text="#{help.tips.answer[3]}">С некоторыми продавцами можно связаться через чат. Чтобы задать интересующий вас вопрос, на
                             карточке товара под его фотографиями нажмите Спросить продавца о товаре, далее введите ваше
                             сообщение и дождитесь ответа.
                         </p>
