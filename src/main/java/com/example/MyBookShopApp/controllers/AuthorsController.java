@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/authors")
 @Controller
 public class AuthorsController {
 
@@ -27,7 +26,7 @@ public class AuthorsController {
         return authorService.getAuthorsMap();
     }
 
-    @GetMapping("/index")
+    @GetMapping("/authors")
     public String authorsPage(){
         return "/authors/index";
     }
