@@ -1,4 +1,4 @@
-init databaseChangeLog:
+databaseChangeLog:
 - changeSet:
     id: 1667909258678-1
     author: postgres (generated)
