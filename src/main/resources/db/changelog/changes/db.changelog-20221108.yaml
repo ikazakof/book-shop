@@ -1,0 +1,513 @@
+databaseChangeLog:
+- changeSet:
+    id: 1667909258678-1
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: authorsPK
+            name: id
+            type: INTEGER
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: photo
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: slug
+            type: VARCHAR(255)
+        tableName: authors
+- changeSet:
+    id: 1667909258678-2
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: balance_transactionPK
+            name: id
+            type: INTEGER
+        - column:
+            name: bookId
+            type: INTEGER
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            name: time
+            type: TIMESTAMP NOT NULL
+        - column:
+            name: userId
+            type: INTEGER
+        - column:
+            defaultValueNumeric: 0
+            name: value
+            type: INTEGER
+        tableName: balance_transaction
+- changeSet:
+    id: 1667909258678-3
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book2authorPK
+            name: id
+            type: INTEGER
+        - column:
+            name: authorId
+            type: INTEGER
+        - column:
+            name: bookId
+            type: INTEGER
+        - column:
+            defaultValueNumeric: 0
+            name: sortIndex
+            type: INTEGER
+        tableName: book2author
+- changeSet:
+    id: 1667909258678-4
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book2genrePK
+            name: id
+            type: INTEGER
+        - column:
+            name: bookId
+            type: INTEGER
+        - column:
+            name: genreId
+            type: INTEGER
+        tableName: book2genre
+- changeSet:
+    id: 1667909258678-5
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book2userPK
+            name: id
+            type: INTEGER
+        - column:
+            name: bookId
+            type: INTEGER
+        - column:
+            name: time
+            type: TIMESTAMP NOT NULL
+        - column:
+            name: typeId
+            type: INTEGER
+        - column:
+            name: userId
+            type: INTEGER
+        tableName: book2user
+- changeSet:
+    id: 1667909258678-6
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book2user_typePK
+            name: id
+            type: INTEGER
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: book2user_type
+- changeSet:
+    id: 1667909258678-7
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book_filePK
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: hash
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: path
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: type_id
+            type: INTEGER
+        tableName: book_file
+- changeSet:
+    id: 1667909258678-8
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book_file_typePK
+            name: id
+            type: INTEGER
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: book_file_type
+- changeSet:
+    id: 1667909258678-9
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book_reviewPK
+            name: id
+            type: INTEGER
+        - column:
+            name: bookId
+            type: INTEGER
+        - column:
+            name: text
+            type: TEXT
+        - column:
+            name: time
+            type: TIMESTAMP NOT NULL
+        - column:
+            name: userId
+            type: INTEGER
+        tableName: book_review
+- changeSet:
+    id: 1667909258678-10
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: book_review_likePK
+            name: id
+            type: INTEGER
+        - column:
+            name: reviewId
+            type: INTEGER
+        - column:
+            name: time
+            type: TIMESTAMP NOT NULL
+        - column:
+            name: userId
+            type: INTEGER
+        - column:
+            name: value
+            type: SMALLINT
+        tableName: book_review_like
+- changeSet:
+    id: 1667909258678-11
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: booksPK
+            name: id
+            type: INTEGER
+        - column:
+            name: description
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            defaultValueNumeric: 0
+            name: discount
+            type: SMALLINT
+        - column:
+            name: image
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: is_bestseller
+            type: SMALLINT
+        - column:
+            constraints:
+              nullable: false
+            name: price
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: pub_date
+            type: date
+        - column:
+            constraints:
+              nullable: false
+            name: slug
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: title
+            type: VARCHAR(255)
+        tableName: books
+- changeSet:
+    id: 1667909258678-12
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: documentPK
+            name: id
+            type: INTEGER
+        - column:
+            name: slug
+            type: VARCHAR(255)
+        - column:
+            defaultValueNumeric: 0
+            name: sortIndex
+            type: INTEGER
+        - column:
+            name: text
+            type: TEXT
+        - column:
+            name: title
+            type: VARCHAR(255)
+        tableName: document
+- changeSet:
+    id: 1667909258678-13
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: faqPK
+            name: id
+            type: INTEGER
+        - column:
+            name: answer
+            type: TEXT
+        - column:
+            name: question
+            type: VARCHAR(255)
+        - column:
+            defaultValueNumeric: 0
+            name: sortIndex
+            type: INTEGER
+        tableName: faq
+- changeSet:
+    id: 1667909258678-14
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: file_downloadPK
+            name: id
+            type: INTEGER
+        - column:
+            name: bookId
+            type: INTEGER
+        - column:
+            defaultValueNumeric: 1
+            name: count
+            type: INTEGER
+        - column:
+            name: userId
+            type: INTEGER
+        tableName: file_download
+- changeSet:
+    id: 1667909258678-15
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: genrePK
+            name: id
+            type: INTEGER
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: parentId
+            type: INTEGER
+        - column:
+            name: slug
+            type: VARCHAR(255)
+        tableName: genre
+- changeSet:
+    id: 1667909258678-16
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: messagePK
+            name: id
+            type: INTEGER
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: subject
+            type: VARCHAR(255)
+        - column:
+            name: text
+            type: TEXT
+        - column:
+            name: time
+            type: TIMESTAMP NOT NULL
+        - column:
+            name: userId
+            type: INTEGER
+        tableName: message
+- changeSet:
+    id: 1667909258678-17
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: user_contactPK
+            name: id
+            type: INTEGER
+        - column:
+            name: approved
+            type: SMALLINT
+        - column:
+            name: code
+            type: VARCHAR(255)
+        - column:
+            name: codeTime
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: codeTrails
+            type: INTEGER
+        - column:
+            name: contact
+            type: VARCHAR(255)
+        - column:
+            name: type
+            type: INTEGER
+        - column:
+            name: userId
+            type: INTEGER
+        tableName: user_contact
+- changeSet:
+    id: 1667909258678-18
+    author: postgres (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: usersPK
+            name: id
+            type: INTEGER
+        - column:
+            name: balance
+            type: INTEGER
+        - column:
+            name: hash
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: regTime
+            type: TIMESTAMP NOT NULL
+        tableName: users
+
